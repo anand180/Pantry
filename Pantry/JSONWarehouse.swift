@@ -171,7 +171,7 @@ public class JSONWarehouse: Warehouseable, WarehouseCacheable {
         let url = NSFileManager.defaultManager().URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask).first!
         
         let writeDirectory = url.URLByAppendingPathComponent("com.thatthinginswift.pantry")
-        return writeDirectory
+        return writeDirectory!
     }
     
     func cacheFileURL() -> NSURL {
@@ -179,6 +179,6 @@ public class JSONWarehouse: Warehouseable, WarehouseCacheable {
         let cacheLocation = cacheDirectory.URLByAppendingPathComponent(self.key)
         try! NSFileManager.defaultManager().createDirectoryAtURL(cacheDirectory, withIntermediateDirectories: true, attributes: nil)
         
-        return cacheLocation
+        return cacheLocation!
     }
 }
